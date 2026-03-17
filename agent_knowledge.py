@@ -2,14 +2,14 @@ from locust import HttpUser, task, between
 
 class UserFlow(HttpUser):
     wait_time = between(1, 2)
-    host = "https://3b32dwlsn9.execute-api.eu-west-2.amazonaws.com"
+    host = ""
     default_headers = {"accept": "application/json"}
     print("Attempting login")
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.headers = {
-            "access-token": "bada9610-bbf4-469d-8fd2-2dce1ac1c084",
+            "access-token": "",
             "accept": "application/json"
         }
         
@@ -23,8 +23,8 @@ class UserFlow(HttpUser):
                 "/dev/api/v2/auth/token/create",
                 headers=self.headers,
                 params={
-                    "user_id": "c972141a-89c2-a581-d6b1-c577fbb03d23",
-                    "tenant_id": "5e8fa390-c4aa-cf1f-be0d-fdcafb1400ce",
+                    "user_id": "",
+                    "tenant_id": "",
                     "role": "user"
                 },
                 timeout=10
